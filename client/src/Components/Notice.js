@@ -26,7 +26,7 @@ export default function Notice() {
     try {
       const updatedNotice = { ...Notice, TimeAdded: new Date().toLocaleString() };
       setNotice(updatedNotice);
-      await axios.post("http://localhost:3001/AddNewNotice", { ...updatedNotice })
+      await axios.post("https://ccc-secr-bsp-server.vercel.app/AddNewNotice", { ...updatedNotice })
         .then(result => {
           console.log(result)
           alert('New Notice Added')
@@ -41,13 +41,13 @@ export default function Notice() {
   const [AllNotice, setAllNotice] = useState();
 
   useEffect(() => {
-    axios.get('http://localhost:3001/GetNotice')
+    axios.get('https://ccc-secr-bsp-server.vercel.app/GetNotice')
       .then(result => setAllNotice(result.data))
       .catch(error => console.log(error))
   }, [])
 
   const DeleteNotice = async (id) => {
-    axios.delete('http://localhost:3001/DeleteNotice/' + id)
+    axios.delete('https://ccc-secr-bsp-server.vercel.app/DeleteNotice/' + id)
       .then(result => {
         console.log(result)
         window.location.reload();
