@@ -24,7 +24,7 @@ export default function Gallery() {
   const AddNewCard = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/AddNewCard", { ...Card })
+      await axios.post("https://ccc-secr-bsp-server.vercel.app/AddNewCard", { ...Card })
         .then(result => {
           console.log(result)
           alert('New Card Added')
@@ -39,13 +39,13 @@ export default function Gallery() {
   const [AllCard, setAllCard] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/GetCards')
+    axios.get('https://ccc-secr-bsp-server.vercel.app/GetCards')
       .then(result => setAllCard(result.data))
       .catch(error => console.log(error))
   }, [])
 
   const DeleteCard = async (id) => {
-    axios.delete('http://localhost:3001/DeleteCard/' + id)
+    axios.delete('https://ccc-secr-bsp-server.vercel.app/DeleteCard/' + id)
       .then(result => {
         console.log(result)
         window.location.reload();
