@@ -46,7 +46,7 @@ export default function Contact() {
     });
 
     const GetContactProfile = async (id) => {
-        axios.get('http://localhost:3001/GetContactProfile/' + id)
+        axios.get('https://ccc-secr-bsp-server.vercel.app/GetContactProfile/' + id)
             .then(result => setEditContact(result.data))
             .catch(error => console.log(error))
     }
@@ -54,7 +54,7 @@ export default function Contact() {
     const EditContactProfile = async (id, e) => {
         e.preventDefault();
         try {
-            axios.put("http://localhost:3001/EditContactProfile/" + id, { ...EditContact })
+            axios.put("https://ccc-secr-bsp-server.vercel.app/EditContactProfile/" + id, { ...EditContact })
                 .then(result => {
                     console.log(result)
                     alert('Edited')
@@ -74,7 +74,7 @@ export default function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3001/AddNewContact', contactData)
+        axios.post('https://ccc-secr-bsp-server.vercel.app/AddNewContact', contactData)
             .then((response) => {
                 console.log(response.data);
                 alert('New Contact Added');
@@ -88,7 +88,7 @@ export default function Contact() {
     const [AllContacts, setAllContacts] = useState();
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetContacts')
+        axios.get('https://ccc-secr-bsp-server.vercel.app/GetContacts')
             .then(async (result) => {
                 await new Promise(resolve => setTimeout(resolve, 500));
                 setAllContacts(result.data)
@@ -97,7 +97,7 @@ export default function Contact() {
     }, [])
 
     const DeleteContact = async (id) => {
-        axios.delete('http://localhost:3001/DeleteContact/' + id)
+        axios.delete('https://ccc-secr-bsp-server.vercel.app/DeleteContact/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
