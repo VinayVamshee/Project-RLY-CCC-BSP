@@ -85,20 +85,11 @@ export default function Contact() {
             });
     }
 
-    const [initialResponse, setInitialResponse] = useState(null);
     const [AllContacts, setAllContacts] = useState();
 
     useEffect(() => {
     axios.get('https://ccc-secr-bsp-server.vercel.app/GetContacts')
-        .then((result) => {
-            // Check if the response has an initial message
-            if (result.data.message) {
-                setInitialResponse(result.data.message);
-            } else {
-                // If not, it's the complete data, set it to allContacts
-                setAllContacts(result.data);
-            }
-        })
+        .then((result) => setAllContacts(result.data))
         .catch(error => console.log(error));
 }, []);
 
