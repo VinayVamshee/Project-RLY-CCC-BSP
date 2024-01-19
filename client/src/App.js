@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home';
 import NavigationMenu from './Components/NavigationMenu';
 import './Components/style.css';
-import Contact from './Components/Contact';
+// import Contact from './Components/Contact';
 import Notice from './Components/Notice';
 import Books from './Components/Books';
 import Gallery from './Components/Gallery';
@@ -50,7 +50,7 @@ function App() {
         <NavigationMenu />
         <Routes>
           <Route path='/' exact element={<Home />} />
-          <Route path='/Contact' element={<Contact/>}/>
+          // <Route path='/Contact' element={<Contact/>}/>
           <Route path='/Notice' element={<Notice/>}/>
           <Route path='/Books' element={<Books/>}/>
           <Route path='/Gallery' element={<Gallery/>}/>
