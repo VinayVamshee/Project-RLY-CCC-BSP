@@ -50,7 +50,7 @@ function App() {
         <NavigationMenu />
         <Routes>
           <Route path='/' exact element={<Home />} />
-          // <Route path='/Contact' element={<Contact/>}/>
+         
           <Route path='/Notice' element={<Notice/>}/>
           <Route path='/Books' element={<Books/>}/>
           <Route path='/Gallery' element={<Gallery/>}/>
