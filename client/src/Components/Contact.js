@@ -85,16 +85,22 @@ export default function Contact() {
             });
     }
 
+    const [initialResponse, setInitialResponse] = useState(null);
     const [AllContacts, setAllContacts] = useState();
 
     useEffect(() => {
-        axios.get('https://ccc-secr-bsp-server.vercel.app/GetContacts')
-            .then(async (result) => {
-                await new Promise(resolve => setTimeout(resolve, 500));
-                setAllContacts(result.data)
-            })
-            .catch(error => console.log(error))
-    }, [])
+    axios.get('https://ccc-secr-bsp-server.vercel.app/GetContacts')
+        .then((result) => {
+            // Check if the response has an initial message
+            if (result.data.message) {
+                setInitialResponse(result.data.message);
+            } else {
+                // If not, it's the complete data, set it to allContacts
+                setAllContacts(result.data);
+            }
+        })
+        .catch(error => console.log(error));
+}, []);
 
     const DeleteContact = async (id) => {
         axios.delete('https://ccc-secr-bsp-server.vercel.app/DeleteContact/' + id)
