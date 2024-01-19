@@ -45,7 +45,7 @@ app.delete('/DeleteContact/:id', (req, res) => {
 
 
 app.get('/GetContacts', (req, res) => {
-     res.status(200).json({ message: 'Initial response sent.' });
+     res.status(200);
     ContactSchema.find({})
         .then(result => res.json(result))
         .catch(error => res.json(error))
