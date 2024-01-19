@@ -11,12 +11,5 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-  "functions": {
-    "api/*": {
-      "runtime": "@vercel/node@1.10.0", 
-      "memory": 512,
-      "maxDuration": 20
-    }
-  }
+  ]
 }
