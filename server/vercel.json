@@ -1,15 +1,22 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "./index.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "functions": {
+    "api/*": {
+      "runtime": "@vercel/node@1.10.0", // Specify the Node.js runtime version
+      "memory": 512, // Specify the memory allocation for the function in megabytes
+      "maxDuration": 20 // Set the maximum duration (timeout) for the function in seconds
+    }
+  }
 }
