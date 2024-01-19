@@ -54,7 +54,7 @@ function App() {
           <Route path='/Notice' element={<Notice/>}/>
           <Route path='/Books' element={<Books/>}/>
           <Route path='/Gallery' element={<Gallery/>}/>
-          // <Route path='/Videos' element={<Videos/>}/>
+          <Route path='/Videos' element={<Videos/>}/>
           <Route path='/Admin' element={<Admin/>}/>
         </Routes>
    <Analytics />
